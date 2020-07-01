@@ -40,8 +40,8 @@ services:
     environment:
       - PMA_ARBITRARY=1  #任意のサーバーで起動
       - PMA_HOST=db-host
-      - PMA_USER=docker
-      - PMA_PASSWORD=docker
+      - PMA_USER=root
+      - PMA_PASSWORD=root
     links:
       - db  #mysqlコンテナにリンクする
     ports:
