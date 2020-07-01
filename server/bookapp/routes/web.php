@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     $books = Book::all();
     return view('books', ['books'=>$books]);
-});
+})->middleware('auth');
 
 Route::post('/book', function (Request $request) {
     $validateor = Validator::make($request->all(), [
@@ -43,3 +43,7 @@ Route::delete('/book/{book}', function(Book $book) {
     $book->delete();
     return redirect('/');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
